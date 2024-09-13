@@ -19,6 +19,6 @@ This is a simple implementation of the classic Tic-Tac-Toe game. The game is pla
 
 ## Usage
 
-1. Run python file from terminal.
+1. Run python file "tictactoe.py" from terminal.
 2. Players take turns inputing a number.
 3. The game will automatically detect and announce the winner or if the game ends in a draw.
