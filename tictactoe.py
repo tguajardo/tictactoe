@@ -67,20 +67,23 @@ class Game:
         while True:
             self.board.display()
             player = self.players[self.current_player]
-            move = int(input(f"{player.name} ({player.symbol}), enter your move (1-9): ")) - 1
-            if self.board.update(move, player.symbol):
-                if self.board.check_winner(player.symbol):
-                    self.board.display()
-                    print(f"{player.name} wins!")
-                    break
-                elif self.board.is_full():
-                    self.board.display()
-                    print("It's a tie!")
-                    break
+            try:
+                move = int(input(f"{player.name} ({player.symbol}), enter your move (1-9): ")) - 1
+                if self.board.update(move, player.symbol):
+                    if self.board.check_winner(player.symbol):
+                        self.board.display()
+                        print(f"{player.name} wins!")
+                        break
+                    elif self.board.is_full():
+                        self.board.display()
+                        print("It's a tie!")
+                        break
+                    else:
+                        self.switch_player()
                 else:
-                    self.switch_player()
-            else:
-                print("Invalid move. Try again.")
+                    print("Invalid move. Try again.")
+            except:
+                print("Invalid input. Enter a number between 1-9")
 
 if __name__ == "__main__":
     game = Game()
